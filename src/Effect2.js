@@ -6,16 +6,16 @@ const [data, setData] = useState([])
 
 
 useEffect(()=>{
-    fetch('https://api.coinlore.net/api/tickers/20')
-            .then(res=>res.json())
-            .then(json=>setData(json.data))
+    fetch("https://api.coinlore.net/api/tickers")
+      .then((res) => res.json())
+      .then((json) => setData(json.data));
 
 }, [])
 
   return (
-    <div  className='move'>
+    <div  className='move2'>
 
-            <h2>useEffect Basics</h2>
+            <h1>Coin exchange API</h1>
             {data.map((d)=>{
 
                 const {name,symbol,price_usd, id} = d
@@ -23,8 +23,8 @@ useEffect(()=>{
                 return(
                     <div className='text' key={id}>
                         <h1>{name}</h1>
-                        <h1>{symbol}</h1>
-                        <h1>{price_usd}</h1>
+                        <h2>{symbol}</h2>
+                        <p>${price_usd}</p>
 
                     </div>
                 )

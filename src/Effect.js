@@ -7,7 +7,7 @@ const [data, setData] = useState([])
 
 
 useEffect(()=>{
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://fakestoreapi.com/products?limit=10')
             .then(res=>res.json())
             .then(json=>setData(json))
 
@@ -17,20 +17,20 @@ useEffect(()=>{
   return (
     <div  className='move'>
 
-            <h2>useEffect Basics</h2>
+            <h1>How to fetch and consume API on react</h1>
             {data.map((d)=>{
 
                 const {title, id, description,image, category, price} = d
 
-                return(
-                    <div className='text' key={id}>
-                        <h1>{title}</h1>
-                        <h1>{description}</h1>
-                        <h1>{category}</h1>
-                        <h1>{price}</h1>
-                        <img src={image} alt="" srcset="" />
-                    </div>
-                )
+                return (
+                  <div className="text" key={id}>
+                    <img src={image} alt="" srcset="" />
+                    <p>{title}</p>
+                    <p>{description}</p>
+                    <p>{category}</p>
+                    <h2>Price: ${price}</h2>
+                  </div>
+                );
             })   }
 
     </div>
