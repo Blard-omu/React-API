@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 const Effect = () => {
-// const [value, setValue] = useState(0)
 const [data, setData] = useState([])
 
 
@@ -10,8 +9,6 @@ useEffect(()=>{
     fetch('https://fakestoreapi.com/products?limit=10')
             .then(res=>res.json())
             .then(json=>setData(json))
-
-    // console.log('value changed' + value);
 }, [])
 
   return (
